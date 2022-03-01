@@ -12,3 +12,17 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+function myFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed Yes!";
+  } else {
+    txt = "You pressed No!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+let isExecuted = confirm("Are you sure to execute this action?");
+
+console.log(isExecuted); // OK = true, Cancel = false
