@@ -1,28 +1,37 @@
-// Assignment Code
+// Variables
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numericChars = "0123456789";
+const specialChars = "!@#$%^&*()";
 
+
+// Functions
+function writePassword() {
+  //generates the password
+  var password = generatePassword();
+  //target the appropriate part of the HTML
+  var passwordText = document.querySelector("#password");
+  //write the password to the webpage
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+//function that generates our password
+function generatePassword() {
 
-function myFunction() {
-  var txt;
-  if (confirm("Press a button!")) {
-    txt = "You pressed Yes!";
-  } else {
-    txt = "You pressed No!";
-  }
-  document.getElementById("demo").innerHTML = txt;
+//asks the user for password length
+//makes sure the user provided a valid length
+
+//ask the user for password criteria
+//make sure we have at least one criteria
+
+//random select from our pool of characters to generate the password
+
 }
 
-let isExecuted = confirm("Are you sure to execute this action?");
+// Non-Function Code
+generateBtn.addEventListener("click", writePassword);
 
-console.log(isExecuted); // OK = true, Cancel = false
+
