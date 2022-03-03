@@ -23,9 +23,19 @@ function generatePassword() {
 
 //asks the user for password length
 var passwordLength = window.prompt("How long should the password be? Length must be at least 8 characters and no greater than 128 characters.");
-//makes sure the user provided a valid number
+
+//convert passwordLength into an integer
+passwordLength = parseInt(passwordLength);
+
+//cut off function if user entered NotANumber 'NaN'
+if (isNaN(passwordLength)) {
+  window.alert("Must be a number. Try again!");
+  generatePassword();
+}
+//makes sure the user provided a valid length
 if (passwordLength > 128 || passwordLength < 8) {
   window.alert("Length must be between 8 and 128. Try again!");
+  generatePassword();
 }
 
 
