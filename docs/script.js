@@ -1,17 +1,16 @@
 // Variables
 var generateBtn = document.querySelector("#generate");
 
-//defines the possible characters that a pasword could have
 const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
 const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numericChars = "0123456789";
 const specialChars = "!@#$%^&*()";
 
-// Functions
+// Function
 function writePassword() {
-  //generates the password
+  //generates the password 
   var password = generatePassword();
-  //target the appropriate part of the HTML
+  //places the generated password within the HTML
   var passwordText = document.querySelector("#password");
   //write the password to the webpage
   passwordText.value = password;
@@ -39,9 +38,6 @@ if (passwordLength > 128 || passwordLength < 8) {
   generatePassword();
 }
 
-//we have a defined variable for the length
-
-//ask the user for password criteria
 //are lowercase characters going to be included?
 var lowercaseCharsCriteria = window.confirm("Do you want to include lowercase letters?");
 //are uppercase characters going to be included?
@@ -50,13 +46,11 @@ var uppercaseCharsCriteria = window.confirm("Do you want to include uppercase le
 var numericCharsCriteria = window.confirm("Do you want to include numbers?");
 //are special characters going to be included?
 var specialCharsCriteria = window.confirm("Do you want to include special symbols?")
-//make sure we have at least one criteria
+//make sure at least one criteria is selected
 if ((lowercaseCharsCriteria === false) && (uppercaseCharsCriteria === false) && (numericCharsCriteria === false) && (specialCharsCriteria === false)) {
   window.alert("Please choose at least one password criteria.");
   generatePassword();
 }
-
-//random select from our pool of characters to generate the password
 
 //assemble the pool of characters for this pasword
 var characterPool = "";
@@ -77,9 +71,19 @@ if (numericCharsCriteria === true) {
 if (specialCharsCriteria === true) {
   characterPool = characterPool + specialChars
 }
-//randomly generate the password from that pool
 
-}
+//randomly generate the password from that pool
+var result = "";
+var poolLength = characterPool.length
+
+for (i = passwordLength;i > 0;i--) {
+  //select a random character in character pool
+  //add that character to the password
+  result +=characterPool.charAt(Math.random()*poolLength);
+  }
+
+return result;
+}  
 
 // Non-Function Code
 generateBtn.addEventListener("click", writePassword);
